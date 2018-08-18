@@ -11,7 +11,7 @@ class CollegeForm extends Component {
             return (
                 <Field
                     key={name}
-                    component={}
+                    component={FormField}
                     type="text"
                     label={label}
                     name={name} />
@@ -22,7 +22,7 @@ class CollegeForm extends Component {
     render() {
         return (
             <Fragment>
-                <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
+                <form onSubmit={this.props.handleSubmit(this.props.onCollegeSubmit)}>
                     {this.renderFields()}
                     <Link to="/surveys" className="">Cancel</Link>
                     <button type="submit" className="">Next</button>
@@ -33,7 +33,7 @@ class CollegeForm extends Component {
 }
 
 function validate(values) {
-    return errors;
+    return {};
 }
 
 export default reduxForm({
