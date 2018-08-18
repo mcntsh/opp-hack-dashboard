@@ -1,21 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+
+import Dashboard from './Dashboard';
+import { CollegeList, CollegeNew } from './colleges';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+    componentDidMount() {
+        // Fetch top-level stuff
+    }
+
+    render() {
+        return (
+            <div className="container">
+                <Router>
+                    <div className="container">
+                        <Route exact path="/" component={Dashboard} />
+                        <Route exact path="/colleges" component={CollegeList} />
+                        <Route path="/colleges/new" component={CollegeNew} />
+                    </div>
+                </Router>
+            </div>
+        );
+    }
 }
 
-export default App;
+App.propTypes = {
+    fetchUser: PropTypes.func.isRequired
+};
+
+export default connect(
+    null,
+    actions
+)(App);
