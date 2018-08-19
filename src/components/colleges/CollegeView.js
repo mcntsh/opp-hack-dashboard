@@ -20,18 +20,20 @@ const styles = theme => ({
 });
 
 class CollegeView extends Component {
-  componentDidMount() {}
+    componentDidMount() {
+        this.props.fetchCollege();
+    }
 
   render() {
     const { classes } = this.props;
 
     return (
-      <div class={classes.root}>
+      <div className={classes.root}>
         <Typography variant="display1" gutterBottom>
           College
         </Typography>
         <Divider />
-        <div class={classes.container}>
+        <div className={classes.container}>
           <Grid container spacing={24}>
             <Grid item xs={12}>
               <Typography variant="title">Checklist</Typography>

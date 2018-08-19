@@ -19,6 +19,18 @@ export const fetchColleges = () => async dispatch => {
   });
 };
 
-export const fetchCollege = () => async dispatch => {
-  return dispatch({ type: FETCH_COLLEGE });
+export const fetchCollege = (name) => async dispatch => {
+    // const req = await axios.post('https://f-connect.herokuapp.com/graphql', {
+    //     query: gql`
+    //         query($name: String) {
+    //             school(name: $name) {
+    //                 name
+    //             }
+    //         }
+    //     `, 
+    //     variables: {
+    //         name
+    //     }
+    // });
+  return dispatch({ type: FETCH_COLLEGE, payload: { ...req.data.data }});
 };
