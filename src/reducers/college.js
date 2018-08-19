@@ -1,6 +1,6 @@
 import { FETCH_COLLEGES, FETCH_COLLEGE } from '../actions/types';
 
-export default function(state = [], action) {
+export default function(state, action) {
   switch (action.type) {
     case FETCH_COLLEGES:
       return [...action.payload];
@@ -8,6 +8,6 @@ export default function(state = [], action) {
     case FETCH_COLLEGE:
       return { ...action.payload };
     default:
-      return state;
+      return [];
   }
 }

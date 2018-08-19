@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchColleges } from '../../actions';
 import { Link } from 'react-router-dom';
 
+import axios from 'axios';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -14,8 +15,25 @@ import EditIcon from '@material-ui/icons/Edit';
 import IconButton from '@material-ui/core/IconButton';
 
 class CollegeList extends Component {
+  state = {
+    schools: []
+  };
   componentDidMount() {
-    this.props.fetchColleges();
+    axios
+      .post('https://f-connect.herokuapp.com/graphql', {
+        query: `
+          query {
+
+    schools(limit: 100) {
+            name,
+            type
+          }
+          }
+                `
+      })
+      .then(res => {
+        this.setState({ schools: res.data.data.schools });
+      });
   }
 
   schoolTypeName = {
@@ -35,22 +53,13 @@ class CollegeList extends Component {
   render() {
     return (
       <List>
-        {this.props.colleges.map(college => (
-          <ListItem>
+        {this.state.schools.map((college, key) => (
+          <ListItem key={key}>
             <Avatar>{this.schoolTypeIcon[college.type]}</Avatar>
             <ListItemText
               primary={college.name}
               secondary={this.schoolTypeName[college.type]}
             />
-            <ListItemSecondaryAction>
-              <IconButton
-                component={Link}
-                to={`/colleges/${college.name}`}
-                aria-label="Delete"
-              >
-                <EditIcon />
-              </IconButton>
-            </ListItemSecondaryAction>
           </ListItem>
         ))}
       </List>

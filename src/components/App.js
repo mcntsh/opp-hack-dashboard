@@ -21,7 +21,7 @@ import Dashboard from './Dashboard';
 import Resources from './Resources';
 import AddCollege from './AddCollege';
 import AddTag from './AddTag';
-import { CollegeList, CollegeNew, CollegeView } from './colleges';
+import { CollegeList, CollegeNew } from './colleges';
 
 const styles = {
   root: {
@@ -43,10 +43,6 @@ const styles = {
 };
 
 class App extends Component {
-  state = {
-    tabValue: 'dashboard'
-  };
-
   componentDidMount() {
     // Fetch top-level stuff
   }
@@ -83,8 +79,6 @@ class App extends Component {
               <Router>
                 <React.Fragment>
                   <Tabs
-                    value={this.state.tabValue}
-                    onChange={this.handleChange}
                     classes={{ indicator: classes.tabRoot }}
                     className="dashboard-tabs"
                     indicatorColor="primary"
@@ -133,21 +127,13 @@ class App extends Component {
                             path="/colleges"
                             component={CollegeList}
                           />
-                          <Route
-                            path="/colleges/:name"
-                            component={CollegeView}
-                          />
                           <Route path="/colleges/new" component={CollegeNew} />
                           <Route
                             exact
                             path="/addSchool"
                             component={AddCollege}
                           />
-                          <Route
-                            exact
-                            path="/addTag"
-                            component={AddTag}
-                          />
+                          <Route exact path="/addTag" component={AddTag} />
                           <Route
                             exact
                             path="/resources"
