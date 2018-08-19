@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { gql } from 'graphql-tag';
+import gql from 'graphql-tag';
 import { FETCH_COLLEGE, FETCH_COLLEGES } from './types';
 
 export const submitCollege = (values, history) => async dispatch => {
@@ -20,13 +20,5 @@ export const fetchColleges = () => async dispatch => {
 };
 
 export const fetchCollege = () => async dispatch => {
-  //  const req = axios.post('https://f-connect.herokuapp.com/graphql', {
-  //      query: gql`
-  //          {
-  //
-  //          }
-  //      `
-  //  })
-
   return dispatch({ type: FETCH_COLLEGE });
 };
