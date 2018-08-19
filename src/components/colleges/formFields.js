@@ -1,3 +1,1 @@
-export default [
-    { label: 'College Name', name: 'name' },
-];
+export default [{ label: 'College Name', name: 'name' }];

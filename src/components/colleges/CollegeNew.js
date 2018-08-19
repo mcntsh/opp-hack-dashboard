@@ -4,17 +4,15 @@ import CollegeForm from './CollegeForm';
 import { reduxForm } from 'redux-form';
 
 class CollegeNew extends Component {
-    state = {
-        showReview: false
-    };
+  state = {
+    showReview: false
+  };
 
-    render() {
-        return (
-            <CollegeForm onSubmit={() => { }} />
-        );
-    }
+  render() {
+    return <CollegeForm onSubmit={() => {}} />;
+  }
 }
 
 export default reduxForm({
-    form: 'collegeForm'
+  form: 'collegeForm'
 })(CollegeForm);

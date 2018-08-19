@@ -9,9 +9,7 @@ class CollegeList extends Component {
 
   renderSurveys = () => {
     return this.props.colleges.reverse().map(college => {
-      return (
-          <div></div>
-      );
+      return <div />;
     });
   };
 
@@ -25,6 +23,6 @@ function mapStateToProps({ colleges }) {
 }
 
 export default connect(
-    mapStateToProps,
-    { fetchColleges }
+  mapStateToProps,
+  { fetchColleges }
 )(CollegeList);
