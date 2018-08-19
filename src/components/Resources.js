@@ -28,8 +28,12 @@ class Cards extends Component {
   getCards(){
     return this.props.resources.map(resource => {
       return (
-        <Grid item xs>
-        <Card style={{
+        <Grid item xs onClick={() => {
+              window.open(resource.link, "_blank")
+            }}>
+        <Card
+
+        style={{
           top: 25, right: 30, left: 20, bottom: 25,
           height: 300,
           width: 200,
@@ -59,6 +63,7 @@ class Resources extends Component {
       resourcesToShow: [],
       resourceNames: []
     }
+    // this.filterResources = debounce(this.filterResources);
   }
   render() {
   return (
@@ -67,14 +72,11 @@ class Resources extends Component {
     }}>
     <SearchBar
       dataSource={this.state.resourceNames}
-      onChange={() => console.log('onChange')}
+      onChange={(a) => {
+        debounce(this.filterResources(a),10);
+      }}
       onRequestSearch={(a) => {
-        let newResources = this.state.resources.filter(resource => {
-          return resource.name.toLowerCase().includes(a.toLowerCase()) || resource.tag.toLowerCase().includes(a.toLowerCase());
-        });
-        this.setState({
-          resourcesToShow: newResources
-        })
+        this.filterResources(a);
       }}
       style={{
         margin: '0 auto',
@@ -87,8 +89,16 @@ class Resources extends Component {
   );
 }
 
+filterResources(a) {
+  let newResources = this.state.resources.filter(resource => {
+    return resource.name.toLowerCase().includes(a.toLowerCase()) || resource.tag.toLowerCase().includes(a.toLowerCase());
+  });
+  this.setState({
+    resourcesToShow: newResources
+  })
+}
+
   componentDidMount() {
-    console.log('Component Did Mount');
     axios.post('https://f-connect.herokuapp.com/graphql', {
       query:`
         query {
@@ -114,6 +124,22 @@ class Resources extends Component {
       console.log('Error', err)
     });
   }
+};
+
+// http://davidwalsh.name/javascript-debounce-function
+const debounce = (func, wait, immediate) => {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
 };
 
 export default Resources;

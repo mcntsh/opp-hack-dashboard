@@ -83,7 +83,8 @@ class App extends Component {
                   <Tabs
                     value={this.state.tabValue}
                     onChange={this.handleChange}
-                    classes={{ root: classes.tabRoot }}
+                    classes={{ indicator: classes.tabRoot }}
+                    className="dashboard-tabs"
                     indicatorColor="primary"
                     textColor="primary"
                     fullWidth
