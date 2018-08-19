@@ -121,7 +121,7 @@ class App extends Component {
                     <Grid item xs={12}>
                       <Grid container spacing={16}>
                         <Grid item xs={12}>
-                          <Route exact path="/" component={Dashboard} />
+                          <Route exact path="/" component={Resources} />
                           <Route
                             exact
                             path="/colleges"
