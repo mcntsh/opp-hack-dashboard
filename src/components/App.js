@@ -70,7 +70,6 @@ class App extends Component {
                 >
                   F-Connect Admin Dashboard
                 </Typography>
-                <Button color="inherit">Logout</Button>
               </Toolbar>
             </AppBar>
           </Grid>
@@ -85,12 +84,6 @@ class App extends Component {
                     textColor="primary"
                     fullWidth
                   >
-                    <Tab
-                      value="dashboard"
-                      label="Dashboard"
-                      component={Link}
-                      to="/"
-                    />
                     <Tab
                       value="colleges"
                       label="Colleges"
