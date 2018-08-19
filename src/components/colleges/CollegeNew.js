@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import CollegeForm from './CollegeForm';
+import { connect } from 'react-redux';
 
-import { reduxForm } from 'redux-form';
+import { submitCollege } from '../../actions';
+import CollegeForm from './CollegeForm';
 
 class CollegeNew extends Component {
   state = {
@@ -13,6 +14,7 @@ class CollegeNew extends Component {
   }
 }
 
-export default reduxForm({
-  form: 'collegeForm'
-})(CollegeForm);
+export default connect(
+  {},
+  { submitCollege }
+)(CollegeNew);

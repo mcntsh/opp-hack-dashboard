@@ -112,7 +112,11 @@ class App extends Component {
                       <Grid container spacing={16}>
                         <Grid item xs={12}>
                           <Route exact path="/" component={Dashboard} />
-                          <Route path="/colleges" component={CollegeList} />
+                          <Route
+                            exact
+                            path="/colleges"
+                            component={CollegeList}
+                          />
                           <Route
                             path="/colleges/:name"
                             component={CollegeView}
@@ -137,4 +141,4 @@ App.propTypes = {};
 export default connect(
   null,
   actions
-)(withRouter(withStyles(styles)(App)));
+)(withStyles(styles)(App));
