@@ -63,12 +63,16 @@ class Resources extends Component {
       resourcesToShow: [],
       resourceNames: []
     }
-    // this.filterResources = debounce(this.filterResources);
   }
   render() {
   return (
     <div id="container" style={{
-      height: 800
+      height: 0,
+
+    }}>
+    <div style={{
+      padding: 20
+
     }}>
     <SearchBar
       dataSource={this.state.resourceNames}
@@ -84,6 +88,7 @@ class Resources extends Component {
       }}
     />
       <Cards resources={this.state.resourcesToShow} />
+      </div>
   </div>
 
   );
