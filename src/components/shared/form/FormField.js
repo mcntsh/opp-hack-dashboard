@@ -1,15 +1,13 @@
 import React from 'react';
 
 const FormField = ({ input, label, meta: { error, touched } }) => {
-    return (
+  return (
     <div>
-        <label>{label}</label>
-        <input {...input} />
-        <div className="">
-            {touched && error}
-        </div>
+      <label>{label}</label>
+      <input {...input} />
+      <div className="">{touched && error}</div>
     </div>
-    );
+  );
 };
 
 export default FormField;

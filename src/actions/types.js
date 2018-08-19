@@ -1,0 +1,2 @@
+export const FETCH_COLLEGE = 'FETCH_COLLEGE';
+export const FETCH_COLLEGES = 'FETCH_COLLEGES';

@@ -1,7 +1,5 @@
 import axios from 'axios';
-
-export const FETCH_COLLEGE = 'FETCH_COLLEGE';
-export const FETCH_COLLEGES = 'FETCH_COLLEGES';
+import { FETCH_COLLEGE, FETCH_COLLEGES } from './types';
 
 export const submitCollege = (values, history) => async dispatch => {
   const res = await axios.post('', values);
