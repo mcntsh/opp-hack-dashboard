@@ -3,23 +3,37 @@ import { connect } from 'react-redux';
 import { fetchColleges } from '../../actions';
 
 class CollegeList extends Component {
-  componentDidMount() {
-    this.props.fetchColleges();
-  }
+    state: {
+        colleges: [],
+    }
 
+<<<<<<< Updated upstream
   renderSurveys = () => {
     return this.props.colleges.reverse().map(college => {
       return <div />;
     });
   };
+=======
+    componentDidMount() {
+        this.props.fetchColleges();
+    }
+>>>>>>> Stashed changes
 
-  render() {
-    return <div>{this.renderColleges()}</div>;
-  }
+    renderColleges = () => {
+        return this.props.colleges.map(college => {
+            return (
+                <div></div>
+            );
+        });
+    };
+
+    render() {
+        return <div>{this.renderColleges()}</div>;
+    }
 }
 
 function mapStateToProps({ colleges }) {
-  return { colleges };
+    return { colleges };
 }
 
 export default connect(

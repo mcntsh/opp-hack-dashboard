@@ -2,10 +2,10 @@ import React, { Component, Fragment } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 
-import { FormField } from '../shared';
 import formFields from './formFields';
 
 class CollegeForm extends Component {
+<<<<<<< Updated upstream
   renderFields = () => {
     return formFields.map(({ label, name }) => {
       return (
@@ -19,6 +19,20 @@ class CollegeForm extends Component {
       );
     });
   };
+=======
+    renderFields = () => {
+        return formFields.map(({ label, name }) => {
+            return (
+                <Field
+                    key={name}
+                    component={Fragment}
+                    type="text"
+                    label={label}
+                    name={name} />
+            );
+        });
+    };
+>>>>>>> Stashed changes
 
   render() {
     return (
