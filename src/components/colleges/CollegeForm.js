@@ -5,13 +5,12 @@ import { Link } from 'react-router-dom';
 import formFields from './formFields';
 
 class CollegeForm extends Component {
-<<<<<<< Updated upstream
   renderFields = () => {
     return formFields.map(({ label, name }) => {
       return (
         <Field
           key={name}
-          component={FormField}
+          component={Fragment}
           type="text"
           label={label}
           name={name}
@@ -19,20 +18,6 @@ class CollegeForm extends Component {
       );
     });
   };
-=======
-    renderFields = () => {
-        return formFields.map(({ label, name }) => {
-            return (
-                <Field
-                    key={name}
-                    component={Fragment}
-                    type="text"
-                    label={label}
-                    name={name} />
-            );
-        });
-    };
->>>>>>> Stashed changes
 
   render() {
     return (

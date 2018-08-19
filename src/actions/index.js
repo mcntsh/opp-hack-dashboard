@@ -9,14 +9,15 @@ export const submitCollege = (values, history) => async dispatch => {
 };
 
 export const fetchColleges = () => async dispatch => {
-    return dispatch({ type: FETCH_COLLEGES, payload: [
-        { name: 'Georgia College', uuid: '1sa30sf98d' },
-        { name: 'San Joes', uuid: 'a1u7167ui7' },
-    ] });
+  return dispatch({
+    type: FETCH_COLLEGES,
+    payload: [
+      { name: 'Georgia College', type: 'HIGH_SCHOOL' },
+      { name: 'San Joes', type: 'MIDDLE_SCHOOL' }
+    ]
+  });
 };
 
 export const fetchCollege = () => async dispatch => {
-    return dispatch({ type: FETCH_COLLEGE })
+  return dispatch({ type: FETCH_COLLEGE });
 };
-
-

@@ -1,19 +1,10 @@
-import { FETCH_COLLEGES } from '../actions';
+import { FETCH_COLLEGES } from '../actions/types';
 
-export default function(state, action) {
-<<<<<<< Updated upstream
+export default function(state = [], action) {
   switch (action.type) {
     case FETCH_COLLEGES:
-      return { ...action.payload };
+      return [ ...state, ...action.payload ];
     default:
-      return { ...state };
+      return state;
   }
-=======
-    switch (action.type) {
-        case FETCH_COLLEGES:
-            return { ...action.payload };
-        default:
-            return [];
-    }
->>>>>>> Stashed changes
 }

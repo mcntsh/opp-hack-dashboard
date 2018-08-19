@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import college from './college';
-import { reducer as form } from 'redux-form';
+import collegeReducer from './college';
 
 export default combineReducers({
-  form,
-  college
+  colleges: collegeReducer
 });
