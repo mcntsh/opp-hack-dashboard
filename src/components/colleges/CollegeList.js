@@ -14,48 +14,52 @@ import EditIcon from '@material-ui/icons/Edit';
 import IconButton from '@material-ui/core/IconButton';
 
 class CollegeList extends Component {
-
   componentDidMount() {
-      this.props.fetchColleges();
+    this.props.fetchColleges();
   }
 
-    schoolTypeName = {
-        COLLEGE: 'College',
-        HIGH_SCHOOL: 'High School',
-        MIDDLE_SCHOOL: 'Middle School',
-        OTHER: 'Miscellaneous'
-    }
+  schoolTypeName = {
+    COLLEGE: 'College',
+    HIGH_SCHOOL: 'High School',
+    MIDDLE_SCHOOL: 'Middle School',
+    OTHER: 'Miscellaneous'
+  };
 
-    schoolTypeIcon = {
-        COLLEGE: <SchoolIcon/>,
-        HIGH_SCHOOL: <MoodIcon/>,
-        MIDDLE_SCHOOL: <MoodIcon/>,
-        OTHER: <MoodIcon/>,
-    }
+  schoolTypeIcon = {
+    COLLEGE: <SchoolIcon />,
+    HIGH_SCHOOL: <MoodIcon />,
+    MIDDLE_SCHOOL: <MoodIcon />,
+    OTHER: <MoodIcon />
+  };
 
-    render() {
-        return (
-            <List>
-                { this.props.colleges.map(college => ( 
-                    <ListItem>
-                        <Avatar>
-                            {this.schoolTypeIcon[college.type]}
-                        </Avatar>
-                        <ListItemText primary={college.name} secondary={this.schoolTypeName[college.type]}/>
-                        <ListItemSecondaryAction>
-                            <IconButton component={Link} to={`/colleges/${college.name}`} aria-label="Delete">
-                                <EditIcon />
-                            </IconButton>
-                        </ListItemSecondaryAction>
-                    </ListItem>
-                )) }
-            </List>
-        );
-    }
+  render() {
+    return (
+      <List>
+        {this.props.colleges.map(college => (
+          <ListItem>
+            <Avatar>{this.schoolTypeIcon[college.type]}</Avatar>
+            <ListItemText
+              primary={college.name}
+              secondary={this.schoolTypeName[college.type]}
+            />
+            <ListItemSecondaryAction>
+              <IconButton
+                component={Link}
+                to={`/colleges/${college.name}`}
+                aria-label="Delete"
+              >
+                <EditIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </ListItem>
+        ))}
+      </List>
+    );
+  }
 }
 
 function mapStateToProps({ colleges }) {
-    return { colleges };
+  return { colleges };
 }
 
 export default connect(

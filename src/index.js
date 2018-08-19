@@ -15,7 +15,7 @@ const middleware = [thunk];
 
 const store = createStore(
   reducers,
-  { college: [] },
+  {},
   composeEnhancers(applyMiddleware(...middleware))
 );
 

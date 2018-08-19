@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
@@ -108,14 +109,17 @@ class App extends Component {
 
                   <Grid container spacing={16}>
                     <Grid item xs={12}>
-                        <Grid container spacing={16}>
-                            <Grid item xs={12}>
-                                <Route exact path="/" component={Dashboard} />
-                                <Route path="/colleges" component={CollegeList} />
-                                <Route path="/colleges/:name" component={CollegeView} />
-                                <Route path="/colleges/new" component={CollegeNew} />
-                            </Grid>
+                      <Grid container spacing={16}>
+                        <Grid item xs={12}>
+                          <Route exact path="/" component={Dashboard} />
+                          <Route path="/colleges" component={CollegeList} />
+                          <Route
+                            path="/colleges/:name"
+                            component={CollegeView}
+                          />
+                          <Route path="/colleges/new" component={CollegeNew} />
                         </Grid>
+                      </Grid>
                     </Grid>
                   </Grid>
                 </React.Fragment>
@@ -128,10 +132,9 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-};
+App.propTypes = {};
 
 export default connect(
   null,
   actions
-)(withStyles(styles)(App));
+)(withRouter(withStyles(styles)(App)));
