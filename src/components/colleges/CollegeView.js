@@ -20,9 +20,9 @@ const styles = theme => ({
 });
 
 class CollegeView extends Component {
-    componentDidMount() {
-        this.props.fetchCollege();
-    }
+  componentDidMount() {
+    this.props.fetchCollege();
+  }
 
   render() {
     const { classes } = this.props;
