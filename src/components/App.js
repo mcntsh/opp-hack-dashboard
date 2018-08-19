@@ -18,6 +18,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 import Dashboard from './Dashboard';
+import Resources from './Resources';
 import { CollegeList, CollegeNew, CollegeView } from './colleges';
 
 const styles = {
@@ -122,6 +123,11 @@ class App extends Component {
                             component={CollegeView}
                           />
                           <Route path="/colleges/new" component={CollegeNew} />
+                          <Route
+                            exact
+                            path="/resources"
+                            component={Resources}
+                          />
                         </Grid>
                       </Grid>
                     </Grid>
